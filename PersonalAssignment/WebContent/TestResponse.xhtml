@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+</h:head> 
+	<ui:composition template= "layouts/commonLayout.xhtml">
+	<ui:define name= "title"> JSF Response Page</ui:define>
+	<ui:define name= "content"> 
+		<h1>Hello my name is #{user.firstName}</h1>
+		<h1>Your orders are:</h1><h:dataTable value = "#{orders.ordersList}" var= "oL" 
+		styleClass = "order-table"
+		headerClass = "order-table-header"
+		rowClass = "order-table-odd-row, order-table-even-row">
+		<h:column>
+		<f:facet name= "header">Order Number</f:facet>
+		#{oL.orderNumber}
+		</h:column>
+		<h:column>
+		<f:facet name= "header">Product Name</f:facet>
+		#{oL.productName}
+		</h:column>
+		<h:column>
+		<f:facet name= "header">Property Price</f:facet>
+		#{oL.priceProperty}
+		</h:column>
+		<h:column>
+		<f:facet name= "header">Product Quantity</f:facet>
+		#{oL.propertyQuantity}
+		</h:column>
+		</h:dataTable>
+		<h:button value= "Home" outcome="TestForm"/>
+		<h:commandButton action="#{formController.onLogoff()}" value="Log Off" />
+		<h:commandButton value="Send Order" action="#{formController.onSendOrder(order)}"></h:commandButton>
+	</ui:define>
+	</ui:composition>
+</html>
