@@ -2,7 +2,7 @@
 class myfunc
 {
     function dbConnect() {
-        $servername = 'database-1.czucd1e4fjja.us-east-2.rds.amazonaws.com';
+        $servername = 'us-cdbr-iron-east-02.cleardb.net';
         $username = 'admin';
         $password = 'moonknight093092';
         $dbname = 'heroku_7993010182d04ea';
